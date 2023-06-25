@@ -10,15 +10,15 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('paket_laundries', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('nomor_hp');
-            $table->rememberToken();
+            $table->string('paket_laundry_id')->unique();
+            $table->string('nama_paket');
+            $table->integer('harga_per_kilo');
+            $table
+                ->integer('durasi_paket')
+                ->nullable()
+                ->comment('Berapa lama layanan paket laundry');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('paket_laundries');
     }
 };

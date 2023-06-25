@@ -10,15 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('fakturs', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('nomor_hp');
-            $table->rememberToken();
+            $table->string('faktur_id')->unique();
+            $table->date('tgl_cetak');
+            $table->string('order_id');
+            $table
+                ->foreign('order_id')
+                ->references('order_id')
+                ->on('orders')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('fakturs');
     }
 };
