@@ -1,0 +1,142 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Quicksand';
+    /* background-color: aliceblue; */
+    overflow-x: hidden;
+}
+
+.w100 {width: 100%; background-color: rgb(169, 169, 169);}
+.h60 {height: 60px;}
+.h100 {height: 100px;}
+.relative {position: relative;}
+.flex {display: flex;}
+.justify-center {justify-content: center;}
+.align-center {align-items: center;}
+.column {flex-direction: column;}
+.flex-wrap {flex-wrap: wrap;}
+.pad-content {padding: 0px 10px;}
+.pad2 {padding: 20px;}
+.pt-10 {padding-top: 10px;}
+.padl-10 {padding-left: 10px;}
+.px20 {padding-left: 20px; padding-right: 20px;}
+.px10 {padding-left: 10px; padding-right: 10px;}
+.py20 {padding-top: 20px; padding-bottom: 20px;}
+.py10 {padding-top: 10px; padding-bottom: 10px;}
+.mx20 {margin-left: 20px; margin-right: 20px;}
+.mx10 {margin-left: 10px; margin-right: 10px;}
+.my20 {margin-top: 20px; margin-bottom: 20px;}
+.my10 {margin-top: 10px; margin-bottom: 10px;}
+.justify-between{justify-content: space-between;}
+.justify-around{justify-content: space-around;}
+h1,h2,h3,h4,h5,h6 {margin: unset;}
+a{text-decoration: none; color: black;transition: .2s all ease-in-out; transform: translateY(0);}
+a:hover{transform: translatex(-5px); font-weight: bold;}
+
+nav {
+    width: 98.65%;
+    height: 70px;
+    background-color: white;
+    padding-left: 20px;
+    margin-right: 60px;
+    position: fixed;
+}
+
+.logo {
+    font-size: 20px; font-weight: bold;
+}
+
+.login {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 20px;
+}
+
+.login:hover {
+    transform: scale(1.10);
+}
+
+.sect1 {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Quicksand';
+    font-weight: bold;
+  }
+  
+  select {
+    width: 104%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    padding: 15px 60px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+  tbody tr:hover {
+    background-color: #f5f5f5;
+  }

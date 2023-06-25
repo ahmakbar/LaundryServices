@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+    width: 100vw;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: rgb(241, 241, 241);
+}
+
+/*
+ *  STYLE 2
+ */
+
+ #style-2::-webkit-scrollbar-track
+ {
+
+     border-radius: 10px;
+     margin: 20px;
+ }
+ 
+ #style-2::-webkit-scrollbar
+ {
+     width: 12px;
+ }
+ 
+ #style-2::-webkit-scrollbar-thumb
+ {
+     border-radius: 20px;
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+     background-color: #121212;
+     border: 2px solid rgb(255, 255, 255);
+ }
+ 
+p {
+    font-size: 15px;
+}
+
+h4 {
+    margin: 0;
+}
+h1 {
+    margin: 10px;
+}
+
+.w100 {width: 100%; background-color: rgb(169, 169, 169);}
+.h60 {height: 60px;}
+.h100 {height: 100px;}
+.relative {position: relative;}
+.flex {display: flex;}
+.justify-center {justify-content: center;}
+.align-center {align-items: center;}
+.column {flex-direction: column;}
+.flex-wrap {flex-wrap: wrap;}
+.pad-content {padding: 0px 10px;}
+.pad2 {padding: 20px;}
+.pt-10 {padding-top: 10px;}
+.padl-10 {padding-left: 10px;}
+.px20 {padding-left: 20px; padding-right: 20px;}
+.px10 {padding-left: 10px; padding-right: 10px;}
+.py20 {padding-top: 20px; padding-bottom: 20px;}
+.py10 {padding-top: 10px; padding-bottom: 10px;}
+.mx20 {margin-left: 20px; margin-right: 20px;}
+.mx10 {margin-left: 10px; margin-right: 10px;}
+.my20 {margin-top: 20px; margin-bottom: 20px;}
+.my10 {margin-top: 10px; margin-bottom: 10px;}
+.text-hover {
+    position: relative;
+    display: inline-block;
+    transition: .2s all ease-in-out;
+    text-decoration: none; /* Add this line to remove the default underline */
+  }
+  
+  .text-hover::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 0;
+    width: 50%;
+    height: 2px;
+    background-color: black; /* Change the color as needed */
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .2s ease-in-out;
+  }
+  
+  .text-hover:hover::after {
+    transform: scaleX(1);
+  }
+  
+  .text-hover:hover {
+    transform: translateY(-2px);
+  }
+  
+
+
+.box2 {
+    width: 50%;
+    height: 100%;
+    background-color: #121212;
+    border-radius: 20px;
+    border: 1px solid rgb(175, 175, 175);
+    margin: 0 20px;
+}
+
+
+.bwhite {
+    background-color: white;
+}
+
+.tiny-card {
+    width: 200px;
+    height: 250px;
+    background-color: #be8686;
+    border-radius: 20px;
+    transition: .2s all ease-in-out;
+    border: none;
+}
+
+.tiny-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px 0px rgba(154, 154, 154, 0.583);
+    /* border: 1px solid rgba(85, 237, 85, 0.219); */
+}
+
+
+/* NAV */
+
+.nav {
+    width: 100%;
+    padding: 10px 0;
+}
+
+nav {
+    width: 95%; height: 50px; padding: 5px 20px;background-color: rgb(218, 218, 218); border-radius: 20px; justify-content: space-between;
+}
+
+.nav-item {
+    margin: 0 20px;
+}
+
+section.left {
+    margin: 0 10px;
+    width: 20%;
+    height: 85vh;
+    background-color: white;
+    border-radius: 20px;
+}
+section.right {
+    margin: 0 10px;
+    width: 73%;
+    height: 80vh;
+    background-color: white;
+    border-radius: 20px;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    
+  }
+
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+
+    table caption {
+      font-size: 1.3em;
+    }
+
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
