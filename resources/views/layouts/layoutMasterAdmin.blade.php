@@ -41,17 +41,6 @@
             <div class="pad-content" style="margin: -20px 0;">
                 <hr>
             </div>
-            {{-- <div class="pad2">
-                <h4>Users</h4>
-                <div class="padl-10 py10 flex column">
-                    <a style="color: black;" class="text-hover py10" href="user.html">Daftar User</a>
-                    <a style="color: black;" class="text-hover py10" href="konselor.html">Daftar Order</a>
-                </div>
-            </div>
-
-            <div class="pad-content" style="margin: -20px 0;">
-                <hr>
-            </div> --}}
         </section>
 
         @yield('content')
