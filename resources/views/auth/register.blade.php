@@ -6,7 +6,8 @@
     <section class="sect1-login flex justify-center align-center justify-around" id="head">
         <div class="form-login flex justify-center column" style="">
             <p style="margin-top: 2em; font-size: 40px; text-align: center; font-weight: bold;">Signup</p>
-            <form action="submit.php" method="post">
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" required>

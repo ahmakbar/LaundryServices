@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>@yield('title')</title>
+
+    {{-- Custom CSS --}}
     <link rel="stylesheet" href="{{ asset('kasir/assets/style.css') }}">
+
+    @yield('style')
+
 </head>
 
 <body>
@@ -14,12 +20,6 @@
         <nav class="flex">
             <p>QuickCare</p>
             <div class="nav-items flex align-center">
-                <div class="nav-item">
-                    aaa
-                </div>
-                <div class="nav-item">
-                    aaa
-                </div>
                 <div class="nav-item">
                     <div class=""
                         style="width: 40px; height: 40px; background-color: black; border-radius: 100%;"></div>
@@ -36,25 +36,16 @@
                 <hr>
             </div>
             <div class="pad2 flex column py20">
-                <a style="color: black;" class="text-hover py10" href="{{ route('kasir_index') }}">Dashboard</a>
+                <a style="color: black;" class="text-hover py10" href="#">Dashboard</a>
             </div>
             <div class="pad-content" style="margin: -20px 0;">
                 <hr>
             </div>
-            {{-- <div class="pad2">
-                <h4>Users</h4>
-                <div class="padl-10 py10 flex column">
-                    <a style="color: black;" class="text-hover py10" href="user.html">Daftar User</a>
-                    <a style="color: black;" class="text-hover py10" href="konselor.html">Daftar Order</a>
-                </div>
-            </div>
-
-            <div class="pad-content" style="margin: -20px 0;">
-                <hr>
-            </div> --}}
         </section>
 
         @yield('content')
+
+        @yield('script')
 
 </body>
 
