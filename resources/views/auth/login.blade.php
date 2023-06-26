@@ -1,5 +1,4 @@
-
-@extends('layout/nav')
+@extends('layouts.layoutMasterCustomer')
 
 @section('title', 'Sign In')
 
@@ -8,15 +7,15 @@
         <div class="form-login flex column" style="">
             <p style="font-size: 40px; text-align: center; font-weight: bold;">Login</p>
             <form action="submit.php" method="post">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
             </form>
             <p class="signup-link">Don't have an account?
                 <a href="{{ route('register') }}">Sign up</a>
