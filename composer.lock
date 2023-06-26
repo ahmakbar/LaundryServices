@@ -2114,6 +2114,7 @@
         },
         {
             "name": "nikic/php-parser",
+<<<<<<< HEAD
             "version": "v4.15.5",
             "source": {
                 "type": "git",
@@ -2124,6 +2125,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/11e2663a5bc9db5d714eedb4277ee300403b4a9e",
                 "reference": "11e2663a5bc9db5d714eedb4277ee300403b4a9e",
+=======
+            "version": "v4.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "19526a33fb561ef417e822e85f08a00db4059c17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/19526a33fb561ef417e822e85f08a00db4059c17",
+                "reference": "19526a33fb561ef417e822e85f08a00db4059c17",
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
                 "shasum": ""
             },
             "require": {
@@ -2164,9 +2177,15 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.5"
             },
             "time": "2023-05-19T20:20:00+00:00"
+=======
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.16.0"
+            },
+            "time": "2023-06-25T14:52:30+00:00"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
         },
         {
             "name": "nunomaduro/termwind",
@@ -3512,6 +3531,7 @@
         },
         {
             "name": "symfony/http-foundation",
+<<<<<<< HEAD
             "version": "v6.3.0",
             "source": {
                 "type": "git",
@@ -3522,6 +3542,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-foundation/zipball/718a97ed430d34e5c568ea2c44eab708c6efbefb",
                 "reference": "718a97ed430d34e5c568ea2c44eab708c6efbefb",
+=======
+            "version": "v6.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "e0ad0d153e1c20069250986cd9e9dd1ccebb0d66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/e0ad0d153e1c20069250986cd9e9dd1ccebb0d66",
+                "reference": "e0ad0d153e1c20069250986cd9e9dd1ccebb0d66",
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
                 "shasum": ""
             },
             "require": {
@@ -3569,7 +3601,11 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/http-foundation/tree/v6.3.0"
+=======
+                "source": "https://github.com/symfony/http-foundation/tree/v6.3.1"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
             },
             "funding": [
                 {
@@ -3585,6 +3621,7 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-05-19T12:46:45+00:00"
         },
         {
@@ -3599,6 +3636,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/241973f3dd900620b1ca052fe409144f11aea748",
                 "reference": "241973f3dd900620b1ca052fe409144f11aea748",
+=======
+            "time": "2023-06-24T11:51:27+00:00"
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "v6.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-kernel.git",
+                "reference": "161e16fd2e35fb4881a43bc8b383dfd5be4ac374"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/161e16fd2e35fb4881a43bc8b383dfd5be4ac374",
+                "reference": "161e16fd2e35fb4881a43bc8b383dfd5be4ac374",
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
                 "shasum": ""
             },
             "require": {
@@ -3682,7 +3735,11 @@
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/http-kernel/tree/v6.3.0"
+=======
+                "source": "https://github.com/symfony/http-kernel/tree/v6.3.1"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
             },
             "funding": [
                 {
@@ -3698,7 +3755,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-05-30T19:03:32+00:00"
+=======
+            "time": "2023-06-26T06:07:32+00:00"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
         },
         {
             "name": "symfony/mailer",
@@ -4661,6 +4722,7 @@
         },
         {
             "name": "symfony/routing",
+<<<<<<< HEAD
             "version": "v6.3.0",
             "source": {
                 "type": "git",
@@ -4671,6 +4733,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/routing/zipball/827f59fdc67eecfc4dfff81f9c93bf4d98f0c89b",
                 "reference": "827f59fdc67eecfc4dfff81f9c93bf4d98f0c89b",
+=======
+            "version": "v6.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/routing.git",
+                "reference": "d37ad1779c38b8eb71996d17dc13030dcb7f9cf5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/d37ad1779c38b8eb71996d17dc13030dcb7f9cf5",
+                "reference": "d37ad1779c38b8eb71996d17dc13030dcb7f9cf5",
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
                 "shasum": ""
             },
             "require": {
@@ -4723,7 +4797,11 @@
                 "url"
             ],
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/routing/tree/v6.3.0"
+=======
+                "source": "https://github.com/symfony/routing/tree/v6.3.1"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
             },
             "funding": [
                 {
@@ -4739,7 +4817,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-04-28T15:57:00+00:00"
+=======
+            "time": "2023-06-05T15:30:22+00:00"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
         },
         {
             "name": "symfony/service-contracts",
@@ -5157,6 +5239,7 @@
         },
         {
             "name": "symfony/var-dumper",
+<<<<<<< HEAD
             "version": "v6.3.0",
             "source": {
                 "type": "git",
@@ -5167,6 +5250,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6acdcd5c122074ee9f7b051e4fb177025c277a0e",
                 "reference": "6acdcd5c122074ee9f7b051e4fb177025c277a0e",
+=======
+            "version": "v6.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/var-dumper.git",
+                "reference": "c81268d6960ddb47af17391a27d222bd58cf0515"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c81268d6960ddb47af17391a27d222bd58cf0515",
+                "reference": "c81268d6960ddb47af17391a27d222bd58cf0515",
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
                 "shasum": ""
             },
             "require": {
@@ -5219,7 +5314,11 @@
                 "dump"
             ],
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/var-dumper/tree/v6.3.0"
+=======
+                "source": "https://github.com/symfony/var-dumper/tree/v6.3.1"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
             },
             "funding": [
                 {
@@ -5235,7 +5334,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-05-25T13:09:35+00:00"
+=======
+            "time": "2023-06-21T12:08:28+00:00"
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -5505,6 +5608,7 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "yajra/laravel-datatables-oracle",
@@ -5589,6 +5693,8 @@
                 }
             ],
             "time": "2023-06-07T02:28:36+00:00"
+=======
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
         }
     ],
     "packages-dev": [
@@ -5783,6 +5889,7 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravel/breeze",
             "version": "v1.21.1",
             "source": {
@@ -5845,6 +5952,8 @@
             "time": "2023-06-16T21:23:43+00:00"
         },
         {
+=======
+>>>>>>> eb9b38d7e785b1ae56e390cc555519a657db6002
             "name": "laravel/pint",
             "version": "v1.10.3",
             "source": {
