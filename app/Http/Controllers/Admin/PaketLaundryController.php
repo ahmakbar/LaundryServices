@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\PaketLaundry;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\PaketLaundry;
 use App\Models\User;
@@ -18,7 +19,7 @@ class OrderController extends Controller
     public function indexTable()
     {
         $orders = Order::with('user', 'paketLaundry')->get();
-        
+
         return DataTables::of($orders)
             ->addColumn('status', function ($order) {
                 $statusLabel = ['Diterima', 'Selesai', 'Diproses'];
@@ -27,10 +28,18 @@ class OrderController extends Controller
             ->addColumn('action', function ($order) {
                 $editUrl = route('orders.edit', $order->id);
                 $deleteUrl = route('orders.destroy', $order->id);
-                return '<a href="'.$editUrl.'" class="btn btn-sm btn-primary">Edit</a>
-                        <form action="'.$deleteUrl.'" method="POST" style="display: inline-block;">
-                            '.csrf_field().'
-                            '.method_field('DELETE').'
+                return '<a href="' .
+                    $editUrl .
+                    '" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="' .
+                    $deleteUrl .
+                    '" method="POST" style="display: inline-block;">
+                            ' .
+                    csrf_field() .
+                    '
+                            ' .
+                    method_field('DELETE') .
+                    '
                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>';
             })
@@ -60,7 +69,8 @@ class OrderController extends Controller
 
         Order::create($request->all());
 
-        return redirect()->route('orders.index')
+        return redirect()
+            ->route('orders.index')
             ->with('success', 'Order created successfully.');
     }
 
@@ -87,7 +97,8 @@ class OrderController extends Controller
 
         $order->update($request->all());
 
-        return redirect()->route('orders.index')
+        return redirect()
+            ->route('orders.index')
             ->with('success', 'Order updated successfully.');
     }
 
@@ -95,7 +106,8 @@ class OrderController extends Controller
     {
         $order->delete();
 
-        return redirect()->route('orders.index')
+        return redirect()
+            ->route('orders.index')
             ->with('success', 'Order deleted successfully.');
     }
 }
