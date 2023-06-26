@@ -6,7 +6,8 @@
     <section class="sect1-login flex justify-center align-center justify-around" id="head">
         <div class="form-login flex column" style="">
             <p style="font-size: 40px; text-align: center; font-weight: bold;">Login</p>
-            <form action="submit.php" method="post">
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
@@ -22,7 +23,7 @@
             </p>
         </div>
         <div class="img-head-login flex justify-center column" style="">
-            <img style="object-fit: contain;" src="assets/images/laundryhead.png" alt="">
+            <img style="object-fit: contain;" src="{{ asset('assets/images/laundryhead.png') }}" alt="">
         </div>
 
     </section>
