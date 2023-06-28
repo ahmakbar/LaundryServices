@@ -31,8 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::group(['middleware' => ['role:customer']], function () {
         Route::resource('customer', BaseController::class);
+        Route::resource('customer-order', OrderController::class);
+        Route::get('cust-order-dt', [OrderController::class, 'indexTable'])->name('cust-order-dt');
     });
-    Route::resource('customer-order', OrderController::class);
 });
 
 Route::middleware('auth')->group(function () {

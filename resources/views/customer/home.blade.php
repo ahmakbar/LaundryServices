@@ -2,6 +2,11 @@
 
 @section('title', 'Home')
 
+@section('style')
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
     <section class="sect1 flex justify-center align-center justify-around" id="head">
         <div class="title flex justify-center column" style="">
@@ -12,10 +17,30 @@
             <img style="object-fit: contain;" src="assets/images/laundryhead.png" alt="">
         </div>
     </section>
-    @if (Session::has('success'))
-        <p class="alert alert-info" style="background-color: green">{{ Session::get('success') }}</p>
-    @endif
+
+    <section class="sect1 flex justify-center align-center justify-around" id="head">
+        <p class="mx10" style="font-size: 40px; font-weight: bold;" id="cuci">Riwayat</p>
+        <table class="flex column align-center" style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;"
+            id="order_dt">
+            <thead>
+                <tr style="height: 60px;">
+                    <th>Nomor</th>
+                    <th>Paket Laundry</th>
+                    <th>Jenis Cucian</th>
+                    <th>Berat Cucian</th>
+                    <th>Catatan Tambahan</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+
     <section class="sect1 flex justify-center align-center column">
+        @if (Session::has('success'))
+            <p class="alert alert-info" style="background-color: green">{{ Session::get('success') }}</p>
+        @endif
         <p class="mx10" style="font-size: 40px; font-weight: bold;" id="cuci">Pemesanan Laundry</p>
         <form action="{{ route('customer-order.store') }}" method="POST" class="flex column align-center"
             style="width: 80%;">
@@ -77,4 +102,47 @@
             <button type="submit">Submit</button>
         </form>
     </section>
+@endsection
+
+@section('script')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#order_dt').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('cust-order-dt') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'paket_laundry',
+                        name: 'paket_laundry'
+                    },
+                    {
+                        data: 'jenis',
+                        name: 'jenis'
+                    },
+                    {
+                        data: 'berat',
+                        name: 'berat'
+                    },
+                    {
+                        data: 'catatan',
+                        name: 'catatan'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                ]
+            });
+
+        });
+    </script>
 @endsection

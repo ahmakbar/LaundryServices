@@ -6,27 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerOrderStoreRequest;
 use App\Models\Order;
 use App\Models\PaketLaundry;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Yajra\DataTables\DataTables;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -48,35 +33,29 @@ class OrderController extends Controller
             ->with('success', 'Order berhasil dibuat');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function indexTable()
     {
-        //
-    }
+        $orders = Order::join('users', 'users.user_id', '=', 'orders.user_id')
+            ->join('paket_laundries', 'paket_laundries.paket_laundry_id', '=', 'orders.paket_laundry_id')
+            ->where('orders.user_id', Auth::user()->user_id)
+            ->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return DataTables::of($orders)
+            ->addIndexColumn()
+            ->addColumn('paket_laundry', function ($row) {
+                $paket_laundry = PaketLaundry::where('paket_laundry_id', $row->paket_laundry_id)->first()->nama_paket;
+                return $paket_laundry;
+            })
+            ->addColumn('status', function ($row) {
+                if ($row->status == 1) {
+                    return 'Selesai';
+                } elseif ($row->status == 2) {
+                    return 'Diproses';
+                } else {
+                    return 'Diterima';
+                }
+            })
+            ->rawColumns(['paket_laundry', 'status'])
+            ->make(true);
     }
 }
