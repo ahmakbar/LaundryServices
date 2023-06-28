@@ -18,7 +18,7 @@
         </div>
     </section>
 
-    <section class="sect1 flex justify-center align-center justify-around" id="head">
+    <section class="sect1 flex justify-center align-center justify-around" id="riwayat">
         <p class="mx10" style="font-size: 40px; font-weight: bold;" id="cuci">Riwayat</p>
         <table class="flex column align-center" style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;"
             id="order_dt">

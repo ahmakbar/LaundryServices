@@ -20,7 +20,7 @@
         <div class="nav-items flex align-center">
             <a href="#" class="nav-item mx10">Beranda</a>
             <a href="#cuci" class="nav-item mx10">Cuci</a>
-            <a href="#" class="nav-item mx10">Riwayat</a>
+            <a href="#riwayat" class="nav-item mx10">Riwayat</a>
             @guest
                 <a href="{{ route('login') }}" class="login nav-item mx10">Login</a>
             @endguest
