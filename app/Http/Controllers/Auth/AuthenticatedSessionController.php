@@ -29,10 +29,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if (Auth::user()->roles->pluck('customer')) {
+        if (Auth::user()->roles->pluck('name')[0] == 'customer') {
             return redirect()->route('customer.index');
-        } elseif (Auth::user()->roles->pluck('admin')) {
+        } elseif (Auth::user()->roles->pluck('name')[0] == 'admin' || Auth::user()->roles->pluck('name')[0] == 'kasir') {
             return redirect()->route('dashboard.index');
+        } else {
+            //
         }
 
         // return redirect()->intended(RouteServiceProvider::HOME);

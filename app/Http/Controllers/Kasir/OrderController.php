@@ -18,31 +18,40 @@ class OrderController extends Controller
 
     public function indexTable()
     {
-        $orders = Order::with('user', 'paketLaundry')->get();
+        $orders = Order::join('users', 'users.user_id', '=', 'orders.user_id')
+            ->join('paket_laundries', 'paket_laundries.paket_laundry_id', '=', 'orders.paket_laundry_id')
+            // ->where('orders.status', '!=', '1')
+            // ->where('orders.status', '!=', 1)
+            ->get();
 
         return DataTables::of($orders)
             ->addColumn('status', function ($order) {
                 $statusLabel = ['Diterima', 'Selesai', 'Diproses'];
                 return $statusLabel[$order->status];
             })
-            ->addColumn('action', function ($order) {
-                $editUrl = route('orders.edit', $order->id);
-                $deleteUrl = route('orders.destroy', $order->id);
-                return '<a href="' .
-                    $editUrl .
-                    '" class="btn btn-sm btn-primary">Edit</a>
-                        <form action="' .
-                    $deleteUrl .
-                    '" method="POST" style="display: inline-block;">
-                            ' .
-                    csrf_field() .
-                    '
-                            ' .
-                    method_field('DELETE') .
-                    '
-                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                        </form>';
+            ->addColumn('nama_lengkap', function ($row) {
+                $nama_lengkap = User::where('user_id', $row->user_id)->first()->name;
+                return $nama_lengkap;
             })
+            ->addColumn('nomor_hp', function ($row) {
+                $nomor_hp = User::where('user_id', $row->user_id)->first()->nomor_hp;
+                return $nomor_hp;
+            })
+            ->addColumn('paket_laundry', function ($row) {
+                $paket_laundry = PaketLaundry::where('paket_laundry_id', $row->paket_laundry_id)->first()->nama_paket;
+                return $paket_laundry;
+            })
+            ->addColumn('status', function ($row) {
+                if ($row->status == 1) {
+                    return 'Selesai';
+                } elseif ($row->status == 2) {
+                    return 'Diproses';
+                } else {
+                    return 'Diterima';
+                }
+            })
+            ->addColumn('aksi', 'kasir.dt.aksi')
+            ->rawColumns(['nama_lengkap', 'nomor_hp', 'paket_laundry', 'status', 'aksi'])
             ->make(true);
     }
 
@@ -74,12 +83,13 @@ class OrderController extends Controller
             ->with('success', 'Order created successfully.');
     }
 
-    public function edit(Order $order)
+    public function edit(string $id)
     {
-        $users = User::all();
-        $paketLaundries = PaketLaundry::all();
+        dd($id);
+        // $users = User::all();
+        // $paketLaundries = PaketLaundry::all();
 
-        return view('orders.edit', compact('order', 'users', 'paketLaundries'));
+        // return view('orders.edit', compact('order', 'users', 'paketLaundries'));
     }
 
     public function update(Request $request, Order $order)
@@ -102,12 +112,40 @@ class OrderController extends Controller
             ->with('success', 'Order updated successfully.');
     }
 
-    public function destroy(Order $order)
+    public function destroy(string $id)
     {
-        $order->delete();
+        $order = Order::where('order_id', $id)
+            ->first()
+            ->delete();
 
         return redirect()
-            ->route('orders.index')
-            ->with('success', 'Order deleted successfully.');
+            ->route('dashboard.index')
+            ->with('success', 'Order berhasil dihapus');
+    }
+
+    public function done($id)
+    {
+        $order = Order::where('order_id', $id)->first();
+
+        $order->update([
+            'status' => 1,
+        ]);
+
+        return redirect()
+            ->route('dashboard.index')
+            ->with('success', 'Order berhasil dinyatakan selesai');
+    }
+
+    public function proses($id)
+    {
+        $order = Order::where('order_id', $id)->first();
+
+        $order->update([
+            'status' => 2,
+        ]);
+
+        return redirect()
+            ->route('dashboard.index')
+            ->with('success', 'Order dalam proses pengerjaan');
     }
 }

@@ -1,6 +1,6 @@
-@extends('layouts.layoutMasterKasir')
+@extends('layouts.layoutMasterAdmin')
 
-@section('title', 'Kasir')
+@section('title', 'Admin')
 
 @section('style')
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">

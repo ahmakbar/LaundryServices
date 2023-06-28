@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->integer('harga_total')->nullable();
             $table->string('catatan')->nullable();
             $table
-                ->enum('status', [0, 1, 2])
+                ->integer('status')
                 ->default(0)
                 ->comment('0= diterima, 1= selesai, 2= diproses');
 

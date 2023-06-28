@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\PaketLaundry;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use PDO;
 use Yajra\DataTables\DataTables;
 
@@ -15,14 +16,19 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        if (Auth::user()->roles->pluck('name')[0] == 'kasir') {
+            return view('kasir.index');
+        } elseif (Auth::user()->roles->pluck('name')[0] == 'admin') {
+            return view('admin.index');
+        } else {
+            //
+        }
     }
 
     public function indexTableAdmin()
     {
         $orders = Order::join('users', 'users.user_id', '=', 'orders.user_id')
             ->join('paket_laundries', 'paket_laundries.paket_laundry_id', '=', 'orders.paket_laundry_id')
-            ->where('status', '1')
             ->where('status', 1)
             ->get();
 

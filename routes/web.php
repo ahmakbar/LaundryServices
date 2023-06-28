@@ -3,6 +3,7 @@
 use App\Http\Controllers\Customer\BaseController;
 use App\Http\Controllers\Customer\OrderController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Kasir\OrderController as KasirOrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::group(['middleware' => ['role:admin']], function () {});
 
-    Route::group(['middleware' => ['role:kasir']], function () {});
+    Route::group(['middleware' => ['role:kasir']], function () {
+        Route::resource('orders', KasirOrderController::class);
+        Route::get('order-done/{id}', [KasirOrderController::class, 'done'])->name('orders.done');
+        Route::get('order-proses/{id}', [KasirOrderController::class, 'proses'])->name('orders.proses');
+        Route::get('kasir-order-dt', [KasirOrderController::class, 'indexTable'])->name('kasir-order-dt');
+    });
 
     Route::group(['middleware' => ['role:customer']], function () {
         Route::resource('customer', BaseController::class);

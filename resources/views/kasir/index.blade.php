@@ -17,8 +17,13 @@
             </div>
         </div>
 
+        <form action="{{ route('logout') }}" method="POST" id="logoutForm">
+            @csrf
+        </form>
+        <button type="submit" onclick="$('#logoutForm').submit()">Logout</button>
+
         <h1 class="pad2 pt10">Daftar Order</h1>
-        <table style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;">
+        <table style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;" id="order_dt">
             <thead>
                 <tr style="height: 60px;">
                     <th>Nama Lengkap</th>
@@ -29,42 +34,66 @@
                     <th>Berat Cucian</th>
                     <th>Catatan Tambahan</th>
                     <th>Status</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <tr style="height: 60px;">
-                    <td>John Doe</td>
-                    <td>johndoe@example.com</td>
-                    <td>1234567890</td>
-                    <td>Paket 1: Cuci Reguler</td>
-                    <td>Pakaian</td>
-                    <td>2 kg</td>
-                    <td>-</td>
-                    <td>
-                        <button
-                            style="border: none; padding: 10px 10px; background-color: rgb(249, 249, 72); border-radius: 10px;">Konfirmasi
-                            Pesanan</button>
-                    </td>
-                </tr>
-                <tr style="height: 60px;">
-                    <td>Jane Smith</td>
-                    <td>janesmith@example.com</td>
-                    <td>0987654321</td>
-                    <td>Paket 2: Cuci Kilat</td>
-                    <td>Selimut</td>
-                    <td>3.5 kg</td>
-                    <td>Harap jaga kelembutan selimut</td>
-                    <td>
-                        <button
-                            style="border: none; padding: 10px 10px; background-color: rgb(249, 249, 72); border-radius: 10px;">Konfirmasi
-                            Pesanan</button>
-                    </td>
-                </tr>
-                <!-- Add more rows for each booking -->
             </tbody>
         </table>
-
-
     </section>
-    </div>
+@endsection
+
+@section('script')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var table = $('#order_dt').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('kasir-order-dt') }}",
+                columns: [{
+                        data: 'nama_lengkap',
+                        name: 'nama_lengkap'
+                    },
+                    {
+                        data: 'email',
+                        name: 'email'
+                    },
+                    {
+                        data: 'nomor_hp',
+                        name: 'nomor_hp'
+                    },
+                    {
+                        data: 'paket_laundry',
+                        name: 'paket_laundry'
+                    },
+                    {
+                        data: 'jenis',
+                        name: 'jenis'
+                    },
+                    {
+                        data: 'berat',
+                        name: 'berat'
+                    },
+                    {
+                        data: 'catatan',
+                        name: 'catatan'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
+                        data: 'aksi',
+                        name: 'aksi'
+                    }
+                ]
+            });
+
+        });
+    </script>
 @endsection
