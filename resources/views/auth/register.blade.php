@@ -17,12 +17,16 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
+                    <label for="nomor_hp">Nomor HP</label>
+                    <input type="text" id="nomor_hp" name="nomor_hp" required>
+                </div>
+                <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <input type="password" id="confirm-password" name="password_confirmation" required>
                 </div>
                 <button type="submit">Sign Up</button>
             </form>

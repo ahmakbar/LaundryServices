@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Customer\BaseController;
+use App\Http\Controllers\Customer\OrderController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -21,12 +23,16 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dashboard', DashboardController::class);
+    Route::get('admin-order-dt', [DashboardController::class, 'indexTableAdmin'])->name('admin-order-dt');
 
     Route::group(['middleware' => ['role:admin']], function () {});
 
     Route::group(['middleware' => ['role:kasir']], function () {});
 
-    Route::group(['middleware' => ['role:customer']], function () {});
+    Route::group(['middleware' => ['role:customer']], function () {
+        Route::resource('customer', BaseController::class);
+    });
+    Route::resource('customer-order', OrderController::class);
 });
 
 Route::middleware('auth')->group(function () {

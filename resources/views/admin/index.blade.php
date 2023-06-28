@@ -20,6 +20,10 @@
                 <p>Jumlah Konselor</p>
             </div>
         </div>
+        <form action="{{ route('logout') }}" method="POST" id="logoutForm">
+            @csrf
+        </form>
+        <button type="submit" onclick="$('#logoutForm').submit()">Logout</button>
 
         <h1 class="pad2 pt10">Daftar Order</h1>
         <table style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;" id="order_dt">
@@ -51,36 +55,34 @@
             var table = $('#order_dt').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "",
+                ajax: "{{ route('admin-order-dt') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'name',
-                        name: 'name'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
-                        data: 'email',
-                        name: 'email'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
-                        data: 'username',
-                        name: 'username'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
-                        data: 'phone',
-                        name: 'phone'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
-                        data: 'dob',
-                        name: 'dob'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
-                        data: 'action',
-                        name: 'action',
-                        orderable: true,
-                        searchable: true
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                 ]
             });

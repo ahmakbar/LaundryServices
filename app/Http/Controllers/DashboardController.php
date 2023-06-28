@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Models\PaketLaundry;
+use App\Models\User;
+use Yajra\DataTables\DataTables;
 
 class DashboardController extends Controller
 {
@@ -14,51 +17,36 @@ class DashboardController extends Controller
         return view('admin.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function indexTableAdmin()
     {
-        //
-    }
+        $orders = Order::join('users', 'users.user_id', '=', 'orders.user_id')
+            ->join('paket_laundries', 'paket_laundries.paket_laundry_id', '=', 'orders.paket_laundry_id')
+            ->get();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return DataTables::of($orders)
+            ->addIndexColumn()
+            ->addColumn('nama_lengkap', function ($row) {
+                $nama_lengkap = User::where('user_id', $row->user_id)->first()->name;
+                return $nama_lengkap;
+            })
+            ->addColumn('nomor_hp', function ($row) {
+                $nomor_hp = User::where('user_id', $row->user_id)->first()->nomor_hp;
+                return $nomor_hp;
+            })
+            ->addColumn('paket_laundry', function ($row) {
+                $paket_laundry = PaketLaundry::where('paket_laundry_id', $row->paket_laundry_id)->first()->nama_paket;
+                return $paket_laundry;
+            })
+            ->addColumn('status', function ($row) {
+                if ($row->status == 1) {
+                    return 'Selesai';
+                } elseif ($row->status == 2) {
+                    return 'Diproses';
+                } else {
+                    return 'Diterima';
+                }
+            })
+            ->rawColumns(['nama_lengkap', 'nomor_hp', 'paket_laundry', 'status'])
+            ->make(true);
     }
 }

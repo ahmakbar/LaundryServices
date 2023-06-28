@@ -18,11 +18,21 @@
             <a href="#" class="nav-item mx10">Beranda</a>
             <a href="#cuci" class="nav-item mx10">Cuci</a>
             <a href="#" class="nav-item mx10">Riwayat</a>
-            <a href="{{ route('login') }}" class="login nav-item mx10">Login</a>
+            @guest
+                <a href="{{ route('login') }}" class="login nav-item mx10">Login</a>
+            @endguest
+            @auth
+                <form action="{{ route('logout') }}" method="POST" id="logoutFormNow">@csrf</form>
+                <button type="submit" onclick="$('#logoutFormNow').submit()">Logout</button>
+            @endauth
         </div>
     </nav>
 
     @yield('content')
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+    @yield('script')
 
 </body>
 
