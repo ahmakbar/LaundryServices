@@ -57,32 +57,32 @@
                 serverSide: true,
                 ajax: "{{ route('admin-order-dt') }}",
                 columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'nama_lengkap',
+                        name: 'nama_lengkap'
                     },
                     {
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'nomor_hp',
+                        name: 'nomor_hp'
                     },
                     {
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'paket_laundry',
+                        name: 'paket_laundry'
                     },
                     {
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'jenis',
+                        name: 'jenis'
                     },
                     {
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'berat',
+                        name: 'berat'
                     },
                     {
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'catatan',
+                        name: 'catatan'
                     },
                     {
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
+                        data: 'status',
+                        name: 'status'
                     },
                 ]
             });

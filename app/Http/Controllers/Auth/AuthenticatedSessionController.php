@@ -31,9 +31,11 @@ class AuthenticatedSessionController extends Controller
 
         if (Auth::user()->roles->pluck('customer')) {
             return redirect()->route('customer.index');
+        } elseif (Auth::user()->roles->pluck('admin')) {
+            return redirect()->route('dashboard.index');
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

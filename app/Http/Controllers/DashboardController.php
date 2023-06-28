@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\PaketLaundry;
 use App\Models\User;
+use PDO;
 use Yajra\DataTables\DataTables;
 
 class DashboardController extends Controller
@@ -21,6 +22,8 @@ class DashboardController extends Controller
     {
         $orders = Order::join('users', 'users.user_id', '=', 'orders.user_id')
             ->join('paket_laundries', 'paket_laundries.paket_laundry_id', '=', 'orders.paket_laundry_id')
+            ->where('status', '1')
+            ->where('status', 1)
             ->get();
 
         return DataTables::of($orders)
