@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerOrderStoreRequest;
 use App\Models\Order;
 use App\Models\PaketLaundry;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
@@ -26,6 +25,7 @@ class OrderController extends Controller
             'user_id' => Auth::user()->user_id,
             'paket_laundry_id' => $request->paket_laundry_id,
             'harga_total' => $request->berat * $paketLaundry->harga_per_kilo,
+            'catatan' => $request->catatan,
         ]);
 
         return redirect()
