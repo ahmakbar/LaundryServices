@@ -187,13 +187,14 @@ table {
     width: 90%;
 }
 
+.dataTables_wrapper {
+    width: 95% !important;
+}
 
+table.dataTable.no-footer {
+    width: 95% !important;
+}
 
-
-
-/* Responsive adjustments */
-
-/* Tablets and smaller desktop screens */
 @media (max-width: 1024px) {
   nav {
       margin-right: 30px;
@@ -375,13 +376,7 @@ table {
       margin-bottom: 10px;
       width: 100% !important;
     }
-    .dataTables_wrapper {
-        width: 95% !important;
-    }
 
-    table.dataTable.no-footer {
-        width: 95% !important;
-    }
 
     td {
       display: block;
