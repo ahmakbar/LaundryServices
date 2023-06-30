@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body id="style-2">
     <nav class="flex justify-between align-center">
         <div class="logo">
           Quickcare
