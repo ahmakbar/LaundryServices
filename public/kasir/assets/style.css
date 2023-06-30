@@ -158,7 +158,50 @@ section.right {
     overflow-y: auto;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
+  table caption {
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    background-color: #e6e6e6;
+    border-radius: 8px 8px 0 0;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tbody tr {
+    border-bottom: 2px solid #ddd;
+    background-color: #fff;
+  }
+
+  table td {
+    display: block;
+    padding: 10px;
+    font-size: 0.9em;
+    text-align: left;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: none;
+  }
 
 
 
@@ -236,7 +279,6 @@ section.right {
         padding: 10px;
         font-size: 0.9em;
         display: flex;
-        justify-content: center;
         border-bottom: .5px solid #3333337b;
       }
 
