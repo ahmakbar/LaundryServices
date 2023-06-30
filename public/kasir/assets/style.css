@@ -325,9 +325,6 @@ table {
         display: none;
     } */
 
-    .burger-icon {
-        display: inline-block;
-    }
 
     .burger-icon {
         display: none;
@@ -335,6 +332,7 @@ table {
 
     .burger-icon {
         display: inline-block;
+        cursor: pointer;
     }
 
     .burger-icon::before {
