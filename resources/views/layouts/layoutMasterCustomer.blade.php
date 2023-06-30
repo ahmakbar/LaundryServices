@@ -26,7 +26,7 @@
           @endguest
           @auth
           <form action="{{ route('logout') }}" method="POST" id="logoutFormNow">@csrf</form>
-          <button type="submit" onclick="$('#logoutFormNow').submit()">Logout</button>
+          <button type="submit" style="padding: 10px 30px; font-family: 'Quicksand'; font-size: 15px; background-color: black; font-weight: bold" onclick="$('#logoutFormNow').submit()">Logout</button>
           @endauth
         </div>
         <div class="burger-icon">&#9776;</div>

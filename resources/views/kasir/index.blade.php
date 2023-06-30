@@ -10,7 +10,7 @@
         <form action="{{ route('logout') }}" method="POST" id="logoutForm">
             @csrf
         </form>
-        <button type="submit" onclick="$('#logoutForm').submit()">Logout</button>
+        
 
         <h1 class="pad2 pt10">Daftar Order</h1>
         <table style="width: 100%" id="order_dt">

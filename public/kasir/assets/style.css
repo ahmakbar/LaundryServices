@@ -176,9 +176,9 @@ table {
     border-radius: 8px 8px 0 0;
   }
 
-  table thead {
+  /* table thead {
     display: none;
-  }
+  } */
 
   table tbody tr {
     border-bottom: 2px solid #ddd;
@@ -186,7 +186,7 @@ table {
   }
 
   table td {
-    display: block;
+    /* display: block; */
     padding: 10px;
     font-size: 0.9em;
     text-align: left;
@@ -201,6 +201,104 @@ table {
 
   table td:last-child {
     border-bottom: none;
+  }
+
+  .dataTables_paginate {
+    display: flex !important;
+    width: 100%;
+    justify-content: flex-end;
+
+  }
+
+  .dataTables_paginate ul {
+      display: flex;
+      list-style: none;
+      padding-inline-start: unset !important;
+    }
+    .dataTables_paginate ul li{
+        margin-inline: 10px;
+    }
+    .dataTables_paginate ul li a{
+        text-decoration: none;
+        color: black;
+        transition: .2s all ease-in-out;
+    }
+    .dataTables_paginate ul li a:hover{
+        text-decoration: none;
+        color: rgb(255, 57, 57);
+    }
+
+    .hapus:hover {
+        transform: scale(1.05);
+        background-color: red;
+        font-weight: bold;
+        color: white;
+    }
+    .selesai:hover {
+        transform: scale(1.05);
+        background-color: rgb(0, 213, 0);
+        font-weight: bold;
+        color: white;
+    }
+    .diproses:hover {
+        transform: scale(1.05);
+        background-color: rgb(255, 246, 74);
+        font-weight: bold;
+        color: white;
+    }
+    .button-aksi {
+        font-family: 'Nunito';
+        transition: .2s all ease-in-out;
+        font-weight: 500;
+        width: unset;
+        height: unset;
+        border: none;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: #a3a3a3;
+        margin-block: 2px;
+        text-align: center;
+        color: black;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+  @media screen and (max-width: 1024px) {
+    table {
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      table caption {
+        font-size: 1.2em;
+      }
+
+      table tbody tr {
+        border-bottom: none;
+        background-color: #f8f8f8;
+      }
+
+      table td {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        font-size: 0.9em;
+        display: flex;
+        border-bottom: .5px solid #3333337b;
+      }
+
+      table td::before {
+        display: none;
+      }
+
+      table td:first-child {
+        font-weight: bold;
+      }
+    table thead {
+        display: none;
+    }
   }
 
 
@@ -288,5 +386,12 @@ table {
 
       table td:first-child {
         font-weight: bold;
+      }
+    table thead {
+        display: none;
+    }
+    .dataTables_paginate {
+        display: flex !important;
+        justify-content: center;
       }
   }

@@ -20,12 +20,12 @@
     <div class="nav flex justify-center">
         <nav class="flex align-center">
             <div class="burger-icon" style="font-size: 0px">&#9776;</div>
-            <p>QuickCare</p>
+            <p style="font-weight: bold; font-size: 20px">QuickCare</p>
             <div class="nav-items flex align-center">
-                <div class="nav-item">
+                {{-- <div class="nav-item">
                     <div class=""
                     style="width: 40px; height: 40px; background-color: black; border-radius: 100%;"></div>
-                </div>
+                </div> --}}
             </div>
         </nav>
     </div>
@@ -39,6 +39,7 @@
             </div>
             <div class="pad2 flex column py20">
                 <a style="color: black;" class="text-hover py10" href="#">Dashboard</a>
+                <a class="text-hover py10" style="cursor: pointer" onclick="$('#logoutForm').submit()">Logout</a>
             </div>
             <div class="pad-content" style="margin: -20px 0;">
                 <hr>
