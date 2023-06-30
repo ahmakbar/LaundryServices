@@ -397,6 +397,7 @@ table {
       .form-aksi {
         flex-direction: row;
         width: 100%;
+        flex-wrap: wrap;
       }
 
       .button-aksi {
