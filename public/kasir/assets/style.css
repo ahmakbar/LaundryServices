@@ -250,6 +250,7 @@ table {
         font-family: 'Nunito';
         transition: .2s all ease-in-out;
         font-weight: 500;
+        font-size: 12px;
         width: unset;
         height: unset;
         border: none;
@@ -393,5 +394,15 @@ table {
     .dataTables_paginate {
         display: flex !important;
         justify-content: center;
+      }
+
+      .form-aksi {
+        flex-direction: row;
+        width: 100%;
+      }
+
+      .button-aksi {
+        font-size: 18px;
+        margin-inline: 5px;
       }
   }
