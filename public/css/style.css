@@ -371,6 +371,14 @@ table {
       display: block;
       border-bottom: 1px solid #828282;
       margin-bottom: 10px;
+      width: 100% !important;
+    }
+    .dataTables_wrapper {
+        width: 95% !important;
+    }
+
+    table.dataTable.no-footer {
+        width: 95% !important;
     }
 
     td {
