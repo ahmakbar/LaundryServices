@@ -20,7 +20,7 @@
 
     <section class="sect1-riwayat flex justify-center align-center justify-around column" id="riwayat">
         <p class="mx10" style="font-size: 40px; font-weight: bold;">Riwayat</p>
-        <table class="" style="width: 100%"
+        <table class=""
             id="order_dt">
             <thead>
                 <tr style="height: 60px;">
