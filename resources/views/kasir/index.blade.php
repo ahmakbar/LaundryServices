@@ -6,16 +6,6 @@
 
     <section class="right pad2 flex align-center" id="style-2">
         <h1>Dashboard</h1>
-        <div class="w100 h100 flex py20 relative" style="background-color: white;">
-            <div class="box2 bwhite flex align-center py10">
-                <p class="mx20">Logo </p>
-                <p>Jumlah User</p>
-            </div>
-            <div class="box2 bwhite flex align-center py10">
-                <p class="mx20">Logo </p>
-                <p>Jumlah Konselor</p>
-            </div>
-        </div>
 
         <form action="{{ route('logout') }}" method="POST" id="logoutForm">
             @csrf
@@ -23,7 +13,7 @@
         <button type="submit" onclick="$('#logoutForm').submit()">Logout</button>
 
         <h1 class="pad2 pt10">Daftar Order</h1>
-        <table style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;" id="order_dt">
+        <table style="width: 100%" id="order_dt">
             <thead>
                 <tr style="height: 60px;">
                     <th>Nama Lengkap</th>

@@ -26,7 +26,7 @@
         <button type="submit" onclick="$('#logoutForm').submit()">Logout</button>
 
         <h1 class="pad2 pt10">Daftar Order</h1>
-        <table style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;" id="order_dt">
+        <table style="" id="order_dt">
             <thead>
                 <tr style="height: 60px;">
                     <th>Nama Lengkap</th>

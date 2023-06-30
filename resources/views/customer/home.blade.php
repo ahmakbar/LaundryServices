@@ -18,9 +18,9 @@
         </div>
     </section>
 
-    <section class="sect1 flex justify-center align-center justify-around" id="riwayat">
-        <p class="mx10" style="font-size: 40px; font-weight: bold;" id="cuci">Riwayat</p>
-        <table class="flex column align-center" style="max-width: 100%; margin: 0 auto; padding: 20px; border-radius: 20px;"
+    <section class="sect1-riwayat flex justify-center align-center justify-around column" id="riwayat">
+        <p class="mx10" style="font-size: 40px; font-weight: bold;">Riwayat</p>
+        <table class="" style="width: 100%"
             id="order_dt">
             <thead>
                 <tr style="height: 60px;">
@@ -41,7 +41,7 @@
         @if (Session::has('success'))
             <p class="alert alert-info" style="background-color: green">{{ Session::get('success') }}</p>
         @endif
-        <p class="mx10" style="font-size: 40px; font-weight: bold;" id="cuci">Pemesanan Laundry</p>
+        <p class="mx10" style="font-size: 40px; font-weight: bold;" >Pemesanan Laundry</p>
         <form action="{{ route('customer-order.store') }}" method="POST" class="flex column align-center"
             style="width: 80%;">
             @csrf
@@ -99,7 +99,7 @@
                     @enderror
                 </div>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" id="cuci">Submit</button>
         </form>
     </section>
 @endsection

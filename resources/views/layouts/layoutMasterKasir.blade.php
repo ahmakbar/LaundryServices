@@ -10,6 +10,7 @@
 
     {{-- Custom CSS --}}
     <link rel="stylesheet" href="{{ asset('kasir/assets/style.css') }}">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> --}}
 
     @yield('style')
 
@@ -17,19 +18,20 @@
 
 <body>
     <div class="nav flex justify-center">
-        <nav class="flex">
+        <nav class="flex align-center">
+            <div class="burger-icon" style="font-size: 0px">&#9776;</div>
             <p>QuickCare</p>
             <div class="nav-items flex align-center">
                 <div class="nav-item">
                     <div class=""
-                        style="width: 40px; height: 40px; background-color: black; border-radius: 100%;"></div>
+                    style="width: 40px; height: 40px; background-color: black; border-radius: 100%;"></div>
                 </div>
             </div>
         </nav>
     </div>
     <div class="flex justify-center">
-        <section class="left">
-            <div class="pad-content flex justify-center">
+        <section class="left hide-left" style="overflow-x: hidden">
+            <div class="pad-content flex hide-left justify-center">
                 <h1>Kasir</h1>
             </div>
             <div class="pad-content" style="margin: -20px 0;">
@@ -43,10 +45,19 @@
             </div>
         </section>
 
+
         @yield('content')
 
         @yield('script')
+        <script>
+            const burgerIcon = document.querySelector('.burger-icon');
+            const leftSection = document.querySelector('.left');
 
+            burgerIcon.addEventListener('click', () => {
+                leftSection.classList.toggle('show-left');
+                burgerIcon.classList.toggle('left');
+            });
+        </script>
 </body>
 
 </html>
