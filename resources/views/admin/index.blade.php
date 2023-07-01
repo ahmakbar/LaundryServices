@@ -20,6 +20,18 @@
                 <p>Jumlah Konselor</p>
             </div>
         </div>
+
+        <div class="w100 h100 flex py20 relative" style="background-color: white; margin-top: 1em;">
+            <div class="box2 bwhite flex align-center py10">
+                <p class="mx20">Jumlah Pendapatan Bulan Ini: </p>
+                <p>{{ $pendapatanBulanan }}</p>
+            </div>
+            <div class="box2 bwhite flex align-center py10">
+                <p class="mx20">Jumlah Pendapatan Keseluruhan: </p>
+                <p>{{ $pendapatanKeseluruhan }}</p>
+            </div>
+        </div>
+
         <form action="{{ route('logout') }}" method="POST" id="logoutForm">
             @csrf
         </form>

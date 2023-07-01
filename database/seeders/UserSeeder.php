@@ -3,10 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
@@ -27,7 +25,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make(123),
         ]);
-        $admin->assignRole($admin_role);
+        $admin->assignRole('admin');
 
         // Kasir
         $kasir = User::create([
@@ -36,7 +34,7 @@ class UserSeeder extends Seeder
             'email' => 'kasir@gmail.com',
             'password' => Hash::make(123),
         ]);
-        $kasir->assignRole($kasir_role);
+        $kasir->assignRole('kasir');
 
         // Customer
         $customer = User::create([
@@ -45,6 +43,6 @@ class UserSeeder extends Seeder
             'email' => 'customer@gmail.com',
             'password' => Hash::make(123),
         ]);
-        $customer->assignRole($customer_role);
+        $customer->assignRole('customer');
     }
 }

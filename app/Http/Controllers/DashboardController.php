@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\PaketLaundry;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use PDO;
 use Yajra\DataTables\DataTables;
@@ -17,11 +18,25 @@ class DashboardController extends Controller
     public function index()
     {
         if (Auth::user()->roles->pluck('name')[0] == 'kasir') {
-            return view('kasir.index');
+            $pendapatanBulanan = Order::whereMonth('created_at', Carbon::now()->month)
+                ->where('status', 1)
+                ->sum('harga_total');
+
+            return view('kasir.index', [
+                'pendapatanBulanan' => $pendapatanBulanan,
+            ]);
         } elseif (Auth::user()->roles->pluck('name')[0] == 'admin') {
-            return view('admin.index');
+            $pendapatanBulanan = Order::whereMonth('created_at', Carbon::now()->month)
+                ->where('status', 1)
+                ->sum('harga_total');
+            $pendapatanKeseluruhan = Order::where('status', 1)->sum('harga_total');
+
+            return view('admin.index', [
+                'pendapatanBulanan' => $pendapatanBulanan,
+                'pendapatanKeseluruhan' => $pendapatanKeseluruhan,
+            ]);
         } else {
-            //
+            return view('customer.home');
         }
     }
 

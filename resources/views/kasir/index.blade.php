@@ -10,7 +10,13 @@
         <form action="{{ route('logout') }}" method="POST" id="logoutForm">
             @csrf
         </form>
-        
+
+        <div class="w100 h100 flex py20 relative" style="background-color: white; margin-top: 1em;">
+            <div class="box2 bwhite flex align-center py10">
+                <p class="mx20">Jumlah Pendapatan Bulan Ini: </p>
+                <p>{{ $pendapatanBulanan }}</p>
+            </div>
+        </div>
 
         <h1 class="pad2 pt10">Daftar Order</h1>
         <table style="width: 100%" id="order_dt">
