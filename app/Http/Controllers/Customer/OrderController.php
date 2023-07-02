@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerOrderStoreRequest;
 use App\Models\Order;
 use App\Models\PaketLaundry;
+use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
@@ -55,7 +57,18 @@ class OrderController extends Controller
                     return 'Diterima';
                 }
             })
-            ->rawColumns(['paket_laundry', 'status'])
+            ->addColumn('aksi', 'customer.aksi')
+            ->rawColumns(['paket_laundry', 'status', 'aksi'])
             ->make(true);
+    }
+
+    public function printInvoice($id)
+    {
+        $order = Order::find($id);
+        $user = User::where('user_id', $order->user_id)->first();
+
+        $pdf = Pdf::loadView('customer.invoice', ['order' => $order, 'user' => $user]);
+
+        return $pdf->download('INVOICE-' . $order->order_id . '.pdf');
     }
 }

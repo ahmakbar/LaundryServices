@@ -1,5 +1,7 @@
 <?php
 
+use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\ServiceProvider as DomPDFServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -170,6 +172,7 @@ return [
             App\Providers\RouteServiceProvider::class,
             Spatie\Permission\PermissionServiceProvider::class,
             Yajra\DataTables\DataTablesServiceProvider::class,
+            DomPDFServiceProvider::class,
         ])
         ->toArray(),
 
@@ -187,6 +190,7 @@ return [
     'aliases' => Facade::defaultAliases()
         ->merge([
             'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+            'PDF' => PDF::class,
         ])
         ->toArray(),
 ];

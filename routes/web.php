@@ -39,6 +39,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('customer', BaseController::class);
         Route::resource('customer-order', OrderController::class);
         Route::get('cust-order-dt', [OrderController::class, 'indexTable'])->name('cust-order-dt');
+        Route::get('print-invoice/{id}', [OrderController::class, 'printInvoice'])->name('print-invoice');
     });
 });
 
