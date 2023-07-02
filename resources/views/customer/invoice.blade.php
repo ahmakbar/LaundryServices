@@ -75,11 +75,11 @@
                             <tr>
                                 <td>{{ App\Models\PaketLaundry::where('paket_laundry_id', $order->paket_laundry_id)->first()->nama_paket }}
                                 </td>
-                                <td>{{ $order->berat }}
+                                <td>{{ $order->berat ?? '' }}
                                 </td>
                                 <td>{{ App\Models\PaketLaundry::where('paket_laundry_id', $order->paket_laundry_id)->first()->harga_per_kilo }}
                                 </td>
-                                <td>{{ $order->harga_total }}</td>
+                                <td>{{ $order->harga_total ?? '' }}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="fw-bold">Harga Total</td>
