@@ -62,6 +62,15 @@ class OrderController extends Controller
             ->make(true);
     }
 
+    public function previewInvoice($id)
+    {
+        $order = Order::where('order_id', $id)->first();
+
+        $user = User::where('user_id', $order->user_id)->first();
+
+        return view('customer.preview-invoice', ['order' => $order, 'user' => $user]);
+    }
+
     public function printInvoice($id)
     {
         $order = Order::where('order_id', $id)->first();
