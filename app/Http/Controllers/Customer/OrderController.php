@@ -64,7 +64,8 @@ class OrderController extends Controller
 
     public function printInvoice($id)
     {
-        $order = Order::find($id);
+        $order = Order::where('order_id', $id)->first();
+
         $user = User::where('user_id', $order->user_id)->first();
 
         $pdf = Pdf::loadView('customer.invoice', ['order' => $order, 'user' => $user]);
